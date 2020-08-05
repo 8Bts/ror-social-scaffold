@@ -7,10 +7,12 @@
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
+
 ## Screenshot
 ![screenshot1](app/assets/images/screenshot.png)
 
 ![screenshot2](app/assets/images/screenshot2.png)
+
 
 ## Getting Started
 
@@ -53,6 +55,7 @@ Open `http://localhost:3000/` in your browser.
 
 
 
+
 ## Authors
 👤 **Rashid Mammadli**
 
@@ -60,6 +63,7 @@ Open `http://localhost:3000/` in your browser.
 - Twitter: [@Rasheed49705929](https://twitter.com/Rasheed49705929)
 - Linkedin: [linkedin](https://www.linkedin.com/in/mcmizze-price-238a70135/)
 - Email: mcmizze@yahoo.com
+
 
 👤 **Rida Elbahtouri**
 - [Github](https://github.com/rida-elbahtouri)
