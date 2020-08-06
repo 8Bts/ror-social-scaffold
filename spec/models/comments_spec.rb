@@ -2,16 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:user) do
-    User.create(name: 'test_user', email: 'test_user@test.com',
-                password: '123456', password_confirmation: '123456')
+    User.create(name: 'user1', email: 'user1@gmail.com',
+                password: 'password', password_confirmation: 'password')
   end
   let(:post) do
-    Post.create(user_id: user.id, content: 'This is a post created for the
-      purpose of testing the post model.')
+    Post.create(user_id: user.id, content: 'Post post Post post Post post Post
+    Post post post Post post Post post Post post .')
   end
   subject do
     Comment.new(user_id: user.id, post_id: post.id, content:
-                'This is a comment for the post made.')
+                'comment comment comment comment comment comment
+                comment comment comment comment comment comment')
   end
 
   it 'is valid with valid attributes' do
@@ -23,7 +24,7 @@ RSpec.describe Comment, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'is invalid when content lenght is more than 200 characters' do
+  it 'is invalid when content lenght is more than 200' do
     subject.content = 'a' * 201
     expect(subject).to_not be_valid
   end

@@ -33,6 +33,7 @@ class FriendshipsController < ApplicationController
         (friendship.user_id == friend.id && friendship.friend_id == current_user.id)
     end
     friendship_des&.destroy
+    flash[:notice] = "you unfriended #{friend.name}"
     redirect_to users_path
   end
 end
