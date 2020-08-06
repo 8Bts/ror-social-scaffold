@@ -19,6 +19,7 @@ class FriendshipsController < ApplicationController
     friend = User.find(params[:id])
 
     flash[:notice] = if current_user.confirm_friendship(friend)
+                       Friendship.create(user_id: current_user.id, friend_id: friend.id, status: true)
                        "now  you are friend with #{friend.name}"
                      else
                        'something went wrong'

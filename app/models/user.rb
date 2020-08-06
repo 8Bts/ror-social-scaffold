@@ -15,9 +15,6 @@ class User < ApplicationRecord
 
   def friends
     friends_list = friendships.map { |friendship| friendship.friend if friendship.status }
-
-    friends_list += inverse_friendships.map { |friendship| friendship.user if friendship.status }
-
     friends_list.compact
   end
 
