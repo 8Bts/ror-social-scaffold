@@ -20,19 +20,6 @@ class User < ApplicationRecord
   has_many :pending_friends, through: :requested_friendships, source: :friend
   has_many :friendship_requests, through: :recieved_friendships, source: :user
 
-  # def friends
-  #   friends_list = friendships.map { |friendship| friendship.friend if friendship.status }
-  #   friends_list.compact
-  # end
-
-  # def pending_friends
-  #   friendships.map { |friendship| friendship.friend unless friendship.status }.compact
-  # end
-
-  # def friendship_requests
-  #   inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
-  # end
-
   def confirm_friendship(user)
     friendship_record = recieved_friendships.find_by(user_id: user.id)
     friendship_record.status = true
