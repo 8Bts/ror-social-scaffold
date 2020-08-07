@@ -6,7 +6,7 @@ RSpec.describe 'comments_controller', type: :system do
     User.create(name: 'user1', email: 'user1@gmail.com', password: 'password', password_confirmation: 'password')
   end
 
-  it 'create post' do
+  it 'create comment' do
     do_login('user1@gmail.com', 'password')
     create_post('hello it is a testing post')
     create_comment('it a testing comment')
