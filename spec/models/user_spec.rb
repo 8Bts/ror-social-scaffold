@@ -33,8 +33,14 @@ RSpec.describe User, type: :model do
 
   describe 'Associations' do
     it { should have_many(:friendships) }
-    it { should have_many(:inverse_friendships).class_name('Friendship') }
+    it { should have_many(:recieved_friendships).class_name('Friendship') }
+    it { should have_many(:mutual_friendships).class_name('Friendship') }
+    it { should have_many(:friends).through(:mutual_friendships) }
+    it { should have_many(:pending_friends).through(:requested_friendships).source(:friend) }
+    it { should have_many(:friendship_requests).through(:recieved_friendships).source(:user) }
+
     it { should have_many(:posts) }
     it { should have_many(:comments) }
   end
+
 end

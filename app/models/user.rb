@@ -11,23 +11,30 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :friendships
-  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
-  def friends
-    friends_list = friendships.map { |friendship| friendship.friend if friendship.status }
-    friends_list.compact
-  end
+  has_many :requested_friendships, -> { where status: false }, class_name: 'Friendship'
+  has_many :recieved_friendships, -> { where status: false }, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :mutual_friendships, -> { where status: true }, class_name: 'Friendship'
 
-  def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.status }.compact
-  end
+  has_many :friends, through: :mutual_friendships, source: :friend
+  has_many :pending_friends, through: :requested_friendships, source: :friend
+  has_many :friendship_requests, through: :recieved_friendships, source: :user
 
-  def friendship_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
-  end
+  # def friends
+  #   friends_list = friendships.map { |friendship| friendship.friend if friendship.status }
+  #   friends_list.compact
+  # end
+
+  # def pending_friends
+  #   friendships.map { |friendship| friendship.friend unless friendship.status }.compact
+  # end
+
+  # def friendship_requests
+  #   inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
+  # end
 
   def confirm_friendship(user)
-    friendship_record = inverse_friendships.find { |friendship| friendship.user == user }
+    friendship_record = recieved_friendships.find_by(user_id: user.id)
     friendship_record.status = true
     friendship_record.save
 
