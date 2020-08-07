@@ -18,13 +18,17 @@ module ApplicationHelper
 
   def friend_status(user)
     if current_user.friend?(user)
-      link_to 'Unfriend', destroy_friendship_path(user.id), class: 'btn bg-danger btn-sm text-light'
+      link_to 'Unfriend', friendship_path(user.id),
+              method: :delete, class: 'btn bg-danger btn-sm text-light'
     elsif current_user.pending_friends.include?(user)
-      link_to 'Cancel friendship request', destroy_friendship_path(user.id), class: 'btn bg-warning btn-sm text-light'
+      link_to 'Cancel friendship request', friendship_path(user.id),
+              method: :delete, class: 'btn bg-warning btn-sm text-light'
     elsif current_user.friendship_requests.include?(user)
       render 'accept_reject', locals: { friend_id: user.id }
     else
-      link_to 'Add to friendlist', send_request_path(user.id), class: 'btn bg-info btn-sm text-light'
+      link_to 'Add to friendlist',
+              friendships_path(current_user, friendship: { user_id: current_user, friend_id: user.id }),
+              method: :post
     end
   end
 end
