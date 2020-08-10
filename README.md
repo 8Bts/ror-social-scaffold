@@ -68,13 +68,15 @@ Windows users with Chocolatey installed: choco install chromedriver
 
 ```
 
+
 Now you can run the testing using this command:
 
 ```
 rspec
 
 ```
-
+## PS 
+if you still have a problem with webdriver try add gem 'webdrivers' to The Gemfile then run bundle install again
 
 
 
