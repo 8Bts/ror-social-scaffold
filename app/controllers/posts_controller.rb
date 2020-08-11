@@ -21,9 +21,7 @@ class PostsController < ApplicationController
 
   def timeline_posts
     friends_ids = current_user.friends.pluck(:id).push(current_user.id)
-    friends_posts = Post.where(user_id: friends_ids).ordered_by_most_recent
-
-    @timeline_posts ||= friends_posts
+    @timeline_posts ||= Post.where(user_id: friends_ids).ordered_by_most_recent
   end
 
   def post_params
