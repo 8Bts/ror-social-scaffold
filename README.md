@@ -13,6 +13,9 @@
 
 ![screenshot2](app/assets/images/screenshot2.png)
 
+## Live version
+
+[Click here](https://shielded-springs-79835.herokuapp.com)
 
 ## Getting Started
 
@@ -92,7 +95,7 @@ if you still have a problem with webdriver try add gem 'webdrivers' to The Gemfi
 👤 **Rida Elbahtouri**
 - [Github](https://github.com/rida-elbahtouri)
 - [Twitter](https://twitter.com/RElbahtouri)
-- [Linkedin](https://www.linkedin.com/in/rida-elbahtouri-36a8a7185/)
+- [Linkedin](https://www.linkedin.com/in/rida-elbahtouri)
 
 ## 🤝 Contributing
 
