@@ -2,6 +2,10 @@
 
 > This repo includes a social media app that will allow the user to signin and signup,add friends , add posts , comment and like/dislike posts
 
+## Live version
+
+[Click here](https://shielded-springs-79835.herokuapp.com)
+
 ## Built With
 
 - Ruby v2.7.0
@@ -13,9 +17,6 @@
 
 ![screenshot2](app/assets/images/screenshot2.png)
 
-## Live version
-
-[Click here](https://shielded-springs-79835.herokuapp.com)
 
 ## Getting Started
 
